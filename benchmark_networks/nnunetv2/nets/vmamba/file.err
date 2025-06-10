@@ -1,0 +1,24 @@
+Traceback (most recent call last):
+  File "/work/grana_maxillo/Mamba3DMedModels/umamba/nnunetv2/nets/vmamba/main.py", line 39, in <module>
+    out_y = backbone_model(y)
+  File "/work/grana_maxillo/Mamba3DMedModels/venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/work/grana_maxillo/Mamba3DMedModels/venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/work/grana_maxillo/Mamba3DMedModels/umamba/nnunetv2/nets/vmamba/vmamba.py", line 1518, in forward
+    x = self.patch_embed(x)
+  File "/work/grana_maxillo/Mamba3DMedModels/venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/work/grana_maxillo/Mamba3DMedModels/venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/work/grana_maxillo/Mamba3DMedModels/venv/lib/python3.10/site-packages/torch/nn/modules/container.py", line 215, in forward
+    input = module(input)
+  File "/work/grana_maxillo/Mamba3DMedModels/venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/work/grana_maxillo/Mamba3DMedModels/venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/work/grana_maxillo/Mamba3DMedModels/venv/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 460, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/work/grana_maxillo/Mamba3DMedModels/venv/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 456, in _conv_forward
+    return F.conv2d(input, weight, bias, self.stride,
+RuntimeError: Given groups=1, weight of size [64, 3, 3, 3], expected input[56, 16, 263, 222] to have 3 channels, but got 16 channels instead
