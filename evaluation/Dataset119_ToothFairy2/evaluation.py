@@ -9,10 +9,21 @@ from tqdm import tqdm
 import surface_distance as sd
 
 # Updated dataset name
-DATASET = "Dataset667_ToothFairy2_97cases"
+DATASET = "Dataset119_ToothFairy2_97cases"
 
 # Labels as specified in the dataset.json file
 LABELS = {
+    0: "background",
+    1: "Lower Jawbone",
+    2: "Upper Jawbone",
+    3: "Left Inferior Alveolar Canal",
+    4: "Right Inferior Alveolar Canal",
+    5: "Left Maxillary Sinus",
+    6: "Right Maxillary Sinus",
+    7: "Pharynx",
+    8: "Bridge",
+    9: "Crown",
+    10: "Implant",
     11: "Upper Right Central Incisor",
     12: "Upper Right Lateral Incisor",
     13: "Upper Right Canine",
@@ -111,10 +122,10 @@ def hd95(pred, gt, voxelspacing):
     else:
         return np.nan  # Return NaN if no prediction or ground truth is present
 
-def test(model, fold, test_set, dataset):
+def test(model, fold, dataset):
 
-    test_dir = os.path.join("/work/grana_maxillo/Mamba3DMedModels/data/test_sets", test_set)
-    infer_path = f'inferTs_{model}_{test_set}'
+    test_dir = fold
+    infer_path = f'inferTs_{model}'
 
     label_list_mha = sorted(glob.glob(os.path.join(test_dir, 'labels', '*mha')))
     label_list_nifti = sorted(glob.glob(os.path.join(test_dir, 'labels', '*nii.gz')))
@@ -206,9 +217,8 @@ if __name__ == '__main__':
     parser.add_argument("model", help="model name")
     parser.add_argument("fold", help="fold name")
     parser.add_argument("config", help="config")
-    parser.add_argument("test", help="test set", choices=["Radboud", "Cui", "Cui_15"])
     parser.add_argument("dataset", help="Exact name of the dataset")
 
     args = parser.parse_args()
 
-    test(args.model, args.fold, args.test, args.dataset)
+    test(args.model, args.fold, args.dataset)
