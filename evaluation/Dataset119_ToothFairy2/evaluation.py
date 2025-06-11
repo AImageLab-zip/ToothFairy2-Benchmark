@@ -13,7 +13,6 @@ DATASET = "Dataset119_ToothFairy2_97cases"
 
 # Labels as specified in the dataset.json file
 LABELS = {
-    0: "background",
     1: "Lower Jawbone",
     2: "Upper Jawbone",
     3: "Left Inferior Alveolar Canal",
