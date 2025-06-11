@@ -1,5 +1,5 @@
 {
-    "dataset_name": "Dataset666_ToothFairy2",
+    "dataset_name": "Dataset119_ToothFairy2",
     "plans_name": "nnUNetResEncUNetLPlans",
     "original_median_spacing_after_transp": [
         0.3,
