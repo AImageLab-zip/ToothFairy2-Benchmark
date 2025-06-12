@@ -4,7 +4,7 @@
 
 <figure>
  <img style="float: left" src="figs/CBCT.png" alt="Side view" width="70%">
- <figcaption><em>Caption</em></figcaption>
+ <figcaption><em></em></figcaption>
 </figure>
 
 ToothFairy2-CVPR is the official benchmark repository for the [ToothFairy2 dataset](https://ditto.ing.unimore.it/toothfairy2/), a large-scale, publicly available collection of CBCT scans with voxel-level 3D annotations for 42 maxillofacial structures, including teeth, jawbones, sinuses, and alveolar canals. This benchmark evaluates state-of-the-art segmentation methods—ranging from CNNs to transformers and Mamba-based models on maxillofacial anatomical regions, using the ToothFairy2 dataset for training and test.
@@ -16,7 +16,7 @@ To train models with nnU‑Net based architecture, organize your dataset accordi
 
 1. **Create dataset folder**  
 Create the nnUNet_raw, nnUNet_preprocessed and nnUNet_results folders, and set the corresponding environment variables: 
-```
+```bash
 export nnUNet_raw_data_base="<path to nnUNet_raw>"
 export nnUNet_preprocessed="<path to nnUNet_preprocessed>"
 export RESULTS_FOLDER="<path for trained models>"
@@ -36,14 +36,41 @@ The naming of the single dataset cases must be:
 
 3. **Generate `dataset.json`**  
 In the dataset root folder, include a `dataset.json` file like. You can auto-generate it using: 
-```
+```bash
 python -m nnunetv2.dataset_conversion generate_dataset_json -o nnUNet_raw/DatasetXXX_ToothFairy2 
 ```
 
 4. **Plan and preprocess**
 To verify the dataset format, compute dataset fingerprints, prepare preprocessed data for training, and generate plans files, run the following commands (you can find more details [here](https://github.com/MIC-DKFZ/nnUNet/blob/master/documentation/how_to_use_nnunet.md)):
-```
+```bash
 nnUNetv2_plan_and_preprocess -d XXX --verify_dataset_integrity
 ```
 
-Actually, we already provide our plans file in the [nnUNetplans_files]() folder.
+Actually, we already provide our plans file in the [nnUNetplans_files](https://github.com/AImageLab-zip/ToothFairy2-Benchmark/tree/main/nnUNetplans_files) folder.
+
+## Training Models
+
+To train the different models on the ToothFairy2 dataset (replace `XXX` with your dataset ID), use the following commands (more details [here](https://github.com/MIC-DKFZ/nnUNet/blob/master/documentation/how_to_use_nnunet.md)):
+
+```bash
+# Standard nnUNet (3D full resolution)
+nnUNetv2_train XXX 3d_fullres 0 -tr nnUNetTrainer -p nnUNetPlans
+
+# ResEncL nnUNet version (3D full resolution)
+nUNetv2_train XXX 3d_fullres 0 -tr nnUNetTrainer -p nnUNetResEncUNetL
+
+# nnFormer (3D full resolution)
+nnUNetv2_train XXX 3d_fullres 0 -tr nnUNetTrainerUMmabaBot -p nnUNetPlans
+
+# SwinUMamba (2D)
+nnUNetv2_train XXX 2d 0 -tr nnUNetTrainerSwinUMambaD -p nnUNetPlans
+
+# VMamba (2D)
+nnUNetv2_train XXX 2d 0 -tr nnUNetTrainerVmamba -p nnUNetPlans
+
+# UMamba (3D full resolution)
+nnUNetv2_train XXX 3d_fullres 0 -tr nnUNetTrainerUMmabaBot -p nnUNetPlans
+
+# Training without left/right mirroring (substitute the {nnUNetTrainerName} with one of the trainer names above, and correspondent 2d/3d_fullres configuration)
+srun nnUNetv2_train XXX 2d/3d_fullres 0 -tr {nnUNetTrainerName}_onlyMirror01 -p nnUNetPlans
+```
