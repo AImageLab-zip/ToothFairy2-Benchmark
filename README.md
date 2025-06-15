@@ -9,7 +9,7 @@
 </figure>
 -->
 
-[Thumbnail](https://raw.githubusercontent.com/AImageLab-zip/ToothFairy2-Benchmark/main/assets/thumbnail.gif)
+[Thumbnail](https://raw.githubusercontent.com/AImageLab-zip/ToothFairy2-Benchmark/main/assets/thumbnail.png)
 
 ToothFairy2-CVPR is the official benchmark repository for the [ToothFairy2 dataset](https://ditto.ing.unimore.it/toothfairy2/), a large-scale, publicly available collection of CBCT scans with voxel-level 3D annotations for 42 maxillofacial structures, including teeth, jawbones, sinuses, and alveolar canals. This benchmark evaluates state-of-the-art segmentation methods—ranging from CNNs to transformers and Mamba-based models on maxillofacial anatomical regions, using the ToothFairy2 dataset for training and test.
 All benchmarked methods are implemented within the [nnU-Net framework](https://github.com/MIC-DKFZ/nnUNet), with targeted architectures implemented by us in the [`benchmark_networks/nnunetv2/nets`](benchmark_networks/nnunetv2/nets) folder and their corresponding trainer classes in the [`benchmark_networks/nnunetv2/training/nnUNetTrainer`](benchmark_networks/nnunetv2/training/nnUNetTrainer) directory.
