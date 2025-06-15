@@ -1,9 +1,9 @@
 # ToothFairy2: Segmenting Maxillofacial Structures in CBCT Volumes
 
-[[Paper]](https://openaccess.thecvf.com/content/CVPR2025/papers/Bolelli_Segmenting_Maxillofacial_Structures_in_CBCT_Volumes_CVPR_2025_paper.pdf) [[Bib]](https://scholar.googleusercontent.com/scholar.bib?q=info:SxlqJ7rfTE0J:scholar.google.com/&output=citation&scisdr=CgJJTysEELySm4m8Y0c:AAZF9b8AAAAAaEm6e0cq3jHuqDOuWOPA3ZDYmk8&scisig=AAZF9b8AAAAAaEm6e4MN6LfOEgd980rePIcsXa8&scisf=4&ct=citation&cd=-1&hl=en)
+[[Paper]](https://openaccess.thecvf.com/content/CVPR2025/papers/Bolelli_Segmenting_Maxillofacial_Structures_in_CBCT_Volumes_CVPR_2025_paper.pdf) [[Bib]](https://federicobolelli.it/pub_files/2025cvpr.html)
 
 <figure>
- <img style="float: left" src="figs/CBCT.png" alt="Side view" width="70%">
+ <img style="float: left" src="https://raw.githubusercontent.com/AImageLab-zip/ToothFairy2-Benchmark/blob/main/assets/thumbnail.gif" alt="Side view" width="70%">
  <figcaption><em></em></figcaption>
 </figure>
 
